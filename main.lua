@@ -1,8 +1,8 @@
 local overworld = {
   "w...............",
-  "w............M..",
-  "ww..........MMM.",
-  "ww.........MMCMM",
+  "w...............",
+  "ww..............",
+  "ww..............",
   "www.............",
   "wwww............",
   "wwww............",
@@ -20,7 +20,7 @@ local overworld = {
 local cave = {
   "MMMMMMMMMM",
   "M,,,,,,,,M",
-  "M,,,,B,,,M",
+  "M,,,,,,,,M",
   "M,,,,,,,,M",
   "M,,,,,,,,M",
   "M,,,,,,,,M",
@@ -47,22 +47,18 @@ local bossSprite = {
   [[//  \\]],
 }
 
--- Explain loops and write this
 function gameLoop()
   print("Press any key to start")
-  while true do
-    input.process()
-    world.draw()
-  end
+  --
 end
 
--- Go over boolean and boolean operators
 function can_walk_on(c)
-  return c == "." or c == "C" or c == "," or c == "B"
+  --
+  return true
 end
 
--- Add to the else-if chain
 function draw_tile(c)
+  --
   if c == "w" then
     io.write("\027[97;104m" .. c .. " ")
   elseif c == "." then
@@ -76,41 +72,22 @@ function draw_tile(c)
   elseif c == "," then
     io.write("\027[97;41m" .. c .. " ")
   else
-	io.write(c .. " ")
+    io.write(c .. " ")
   end
 end
 
 playerMoves = {
-	stab = {1, "You stab the boss"},
-	punch = {2, "A good right hook!"},
+  stab = {1, "You stab the boss"},
+  --
 }
 
 bossMoves = {
-	bite = {2, "The boss takes a bite out of you"},
-	wobble = {0, "He lost his balance"},
+  bite = {2, "The boss takes a bite out of you"},
+  --
 }
 
--- Make the turn selections easy-to-use functions so we can write this part
 function run_turn()
-  print_opening()
-  for name, m in pairs(playerMoves) do
-  	print("  - " .. name)
-  end
-
-  local playerMove = get_player_move()
-  print_move(playerMove)
-
-  local bossMove = get_boss_move()
-  print_move(bossMove)
-
-  gameState.player.health = gameState.player.health - bossMove.damage
-  gameState.boss.health = gameState.boss.health - playerMove.damage
-
-  if gameState.player.health <= 0 then
-	gameState.battleState = "lose"
-  elseif gameState.boss.health <= 0 then
-	gameState.battleState = "win"
-  end
+  --
 end
 
 gameState = {
