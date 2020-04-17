@@ -60,19 +60,21 @@ end
 function draw_tile(c)
   --
   if c == "w" then
-    io.write("\027[97;104m" .. c .. " ")
+    print_color(c, "104")
   elseif c == "." then
-    io.write("\027[97;102m" .. c .. " ")
+    print_color(c, "102")
   elseif c == "@" then
-    io.write("\027[97;46m" .. c .. " ")
+    print_color(c, "46")
   elseif c == "M" then
-    io.write("\027[97;43m" .. c .. " ")
+    print_color(c, "43")
   elseif c == "C" then
-    io.write("\027[97;40m" .. c .. " ")
+    print_color(c, "40")
   elseif c == "," then
-    io.write("\027[97;41m" .. c .. " ")
+    print_color(c, "41")
+  elseif c == "^" then
+    print_color(c, "42")
   else
-    io.write(c .. " ")
+    print_color(c, "40")
   end
 end
 
@@ -97,6 +99,10 @@ gameState = {
   player = {x = 5, y = 5, health = 5},
   boss = {health = 7},
 }
+
+function print_color(c, color)
+  io.write("\027[97;" .. color .. "m" .. c .. " ")
+end
 
 function print_opening()
   print("You have " .. gameState.player.health .. " health and the boss has " .. gameState.boss.health .. " health.")
