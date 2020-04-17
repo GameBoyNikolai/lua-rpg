@@ -71,8 +71,6 @@ function draw_tile(c)
     print_color(c, "40")
   elseif c == "," then
     print_color(c, "41")
-  elseif c == "^" then
-    print_color(c, "42")
   else
     print_color(c, "40")
   end
