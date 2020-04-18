@@ -1,1 +1,1 @@
-run = "lua main.lua"
+run = "lua complete.lua"
